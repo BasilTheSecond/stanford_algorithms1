@@ -70,6 +70,4 @@ Thumbs.db
 *.dll
 *.exe
 
-
-/karatsuba
 /merge_sort
