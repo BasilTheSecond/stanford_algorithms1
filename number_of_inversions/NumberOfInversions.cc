@@ -1,17 +1,19 @@
-#include "MergeSort.h"
+#include "NumberOfInversions.h"
 #include <algorithm>
 #include <iostream>
+#include <cassert>
+#include <cstdint>
 
 //
-int MergeSort::level = 0;
+int NumberOfInversions::level = 0;
 
 //
-MergeSort::MergeSort()
+NumberOfInversions::NumberOfInversions()
 {	
 }
 
 //
-std::vector<int>& MergeSort::sort(std::vector<int>& array)
+uint64_t NumberOfInversions::inversions(std::vector<int>& array)
 {
 	level++;
 	std::string ident;
@@ -19,7 +21,7 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	{
 		ident += "-";
 	}
-//	std::cout << ident << "unsorted=" << std::endl;
+	//std::cout << ident << "unsorted=" << std::endl;
 //	for (int i : array)
 //	{
 //		std::cout << ident << i << std::endl;
@@ -35,7 +37,7 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 //			std::cout << ident << i << std::endl;
 //		}
 		level--;
-		return array;
+		return 0;
 	}
 	// recursion case
 	std::vector<int> array1;
@@ -49,8 +51,9 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	{
 		array2.push_back(array[i]);
 	}
-	MergeSort::sort(array1);
-	MergeSort::sort(array2);
+	uint64_t x = NumberOfInversions::inversions(array1);
+	uint64_t y = NumberOfInversions::inversions(array2);
+	uint64_t z = 0;
 	// Merge
 	array.clear();
 	for (size_t i = 0, j = 0, k = 0; i < n; i++)
@@ -72,6 +75,8 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 			else
 			{
 				array.push_back(array2[k++]);
+				uint64_t inter_array_inversions = array1.size() - j;
+				z += inter_array_inversions;
 			}
 		}
 	}
@@ -80,6 +85,8 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 //	{
 //		std::cout << ident << i << std::endl;
 //	}
+	uint64_t inversions = x + y + z;
 	level--;
-	return array;
+	//std::cout << ident << "inversions=" << inversions << std::endl;
+	return inversions;
 }
