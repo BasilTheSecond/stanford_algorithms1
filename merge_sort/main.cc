@@ -2,21 +2,23 @@
 #include <algorithm>
 #include "MergeSort.h"
 
+//
+static std::vector<int>& order(const std::vector<int>& array, std::vector<int>& order);
+
+//
 int main()
 {
 	std::cout << "Test1 " << std::endl;
 	std::vector<int> array1;
+	std::vector<int> correct1;
+	std::vector<int> result1;
 	array1.push_back(4);
 	array1.push_back(3);
 	array1.push_back(5);
 	array1.push_back(1);
 	array1.push_back(2);
 	array1.push_back(6);
-	std::vector<int> correct1 = array1;
-	std::sort(correct1.begin(), correct1.end());
-	std::vector<int> result1;
-	MergeSort::merge(array1, result1);
-	if (result1 == correct1)
+	if (MergeSort::merge(array1, result1) == order(array1, correct1))
 	{
 		std::cout << "OK" << std::endl;
 	}
@@ -26,6 +28,8 @@ int main()
 	}
 	std::cout << "Test2 " << std::endl;
 	std::vector<int> array2;
+	std::vector<int> correct2;
+	std::vector<int> result2;
 	array2.push_back(96);	
 	array2.push_back(99);	
 	array2.push_back(63);
@@ -46,11 +50,19 @@ int main()
 	array2.push_back(35);	
 	array2.push_back(62);	
 	array2.push_back(69);
-	std::vector<int> correct2 = array2;
-	std::sort(correct2.begin(), correct2.end());
-	std::vector<int> result2;
-	MergeSort::merge(array2, result2);
-	if (result2 == correct2)
+	if (MergeSort::merge(array2, result2) == order(array2, correct2))
+	{
+		std::cout << "OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "FAIL" << std::endl;
+	}
+	std::cout << "Test3 " << std::endl;
+	std::vector<int> array3;
+	std::vector<int> correct3;
+	std::vector<int> result3;
+	if (MergeSort::merge(array3, result3) == order(array3, correct3))
 	{
 		std::cout << "OK" << std::endl;
 	}
@@ -59,4 +71,12 @@ int main()
 		std::cout << "FAIL" << std::endl;
 	}
 	return 0;
+}
+
+//
+static std::vector<int>& order(const std::vector<int>& array, std::vector<int>& correct)
+{
+	correct = array;
+	std::sort(correct.begin(), correct.end());
+	return correct;
 }

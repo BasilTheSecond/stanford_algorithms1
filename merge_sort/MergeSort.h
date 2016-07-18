@@ -9,7 +9,7 @@ public:
 	MergeSort();
 
 public:
-	static void merge(const std::vector<int>& array, std::vector<int>& result);
+	static std::vector<int>& merge(const std::vector<int>& array, std::vector<int>& result);
 };
 
 #endif // MERGESORT_H
