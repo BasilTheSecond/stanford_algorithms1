@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cassert>
+#include <cstdint>
 
 //
 int NumberOfInversions::level = 0;
@@ -12,7 +13,7 @@ NumberOfInversions::NumberOfInversions()
 }
 
 //
-int NumberOfInversions::inversions(std::vector<int>& array)
+uint64_t NumberOfInversions::inversions(std::vector<int>& array)
 {
 	level++;
 	std::string ident;
@@ -50,9 +51,9 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 	{
 		array2.push_back(array[i]);
 	}
-	int x = NumberOfInversions::inversions(array1);
-	int y = NumberOfInversions::inversions(array2);
-	int z = 0;
+	uint64_t x = NumberOfInversions::inversions(array1);
+	uint64_t y = NumberOfInversions::inversions(array2);
+	uint64_t z = 0;
 	// Merge
 	array.clear();
 	for (size_t i = 0, j = 0, k = 0; i < n; i++)
@@ -74,7 +75,8 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 			else
 			{
 				array.push_back(array2[k++]);
-				z += (array1.size() - j);
+				uint64_t inter_array_inversions = array1.size() - j;
+				z += inter_array_inversions;
 			}
 		}
 	}
@@ -83,7 +85,8 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 //	{
 //		std::cout << ident << i << std::endl;
 //	}
-	int inversions = x + y + z;
+	uint64_t inversions = x + y + z;
 	level--;
+	//std::cout << ident << "inversions=" << inversions << std::endl;
 	return inversions;
 }

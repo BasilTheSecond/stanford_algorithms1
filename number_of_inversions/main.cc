@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <fstream>
 #include <string>
+#include <cstdint>
 #include "NumberOfInversions.h"
 
 //
@@ -19,7 +20,7 @@ int main()
 	array1.push_back(1);
 	array1.push_back(2);
 	array1.push_back(6);
-	int inversions1 = NumberOfInversions::inversions(array1);
+	uint64_t inversions1 = NumberOfInversions::inversions(array1);
 	std::cout << "inversions1=" << inversions1 << std::endl;
 	if (order(array1, result1) == array1)
 	{
@@ -52,7 +53,7 @@ int main()
 	array2.push_back(35);	
 	array2.push_back(62);	
 	array2.push_back(69);
-	int inversions2 = NumberOfInversions::inversions(array2);
+	uint64_t inversions2 = NumberOfInversions::inversions(array2);
 	std::cout << "inversions2=" << inversions2 << std::endl;
 	if (order(array2, result2) == array2)
 	{
@@ -77,7 +78,7 @@ int main()
     {
       array3.push_back(std::stoi(line, nullptr, 10));	
     }
-		int inversions3 = NumberOfInversions::inversions(array3);
+		uint64_t inversions3 = NumberOfInversions::inversions(array3);
 		std::cout << "inversions3=" << inversions3 << std::endl;
 		if (order(array3, result3) == array3)
 		{

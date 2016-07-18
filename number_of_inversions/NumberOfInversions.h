@@ -2,6 +2,7 @@
 #define NUMBEROFINVERSIONS_H
 
 #include <vector>
+#include <cstdint>
 
 class NumberOfInversions
 {
@@ -9,7 +10,7 @@ public:
 	NumberOfInversions();
 
 public:
-	static int inversions(std::vector<int>& array);
+	static uint64_t inversions(std::vector<int>& array);
 	
 private:
 	static int level;
