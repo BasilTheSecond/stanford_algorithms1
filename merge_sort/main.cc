@@ -58,30 +58,30 @@ int main()
 	{
 		std::cout << "FAIL" << std::endl;
 	}
-//	std::cout << "Test3 " << std::endl;
-//	std::vector<int> array3;
-//	std::vector<int> result3;
-//	std::ifstream file3("_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt");
-//	if (!file3.is_open())
-//  {
-//		std::cout << "FAIL" << std::endl;
-//  }
-//	else
-//	{
-//		std::string line;
-//		while (getline(file3, line))
-//    {
-//      array3.push_back(std::stoi(line, nullptr, 10));	
-//    }
-//		if (order(array3, result3) == MergeSort::sort(array3))
-//		{
-//			std::cout << "OK" << std::endl;
-//		}
-//		else
-//		{
-//			std::cout << "FAIL" << std::endl;
-//		}
-//	}
+	std::cout << "Test3 " << std::endl;
+	std::vector<int> array3;
+	std::vector<int> result3;
+	std::ifstream file3("_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt");
+	if (!file3.is_open())
+  {
+		std::cout << "FAIL" << std::endl;
+  }
+	else
+	{
+		std::string line;
+		while (getline(file3, line))
+    {
+      array3.push_back(std::stoi(line, nullptr, 10));	
+    }
+		if (order(array3, result3) == MergeSort::sort(array3))
+		{
+			std::cout << "OK" << std::endl;
+		}
+		else
+		{
+			std::cout << "FAIL" << std::endl;
+		}
+	}
 	return 0;
 }
 

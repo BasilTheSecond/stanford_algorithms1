@@ -19,21 +19,21 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	{
 		ident += "-";
 	}
-	std::cout << ident << "unsorted=" << std::endl;
-	for (int i : array)
-	{
-		std::cout << ident << i << std::endl;
-	}
+//	std::cout << ident << "unsorted=" << std::endl;
+//	for (int i : array)
+//	{
+//		std::cout << ident << i << std::endl;
+//	}
 	size_t n = array.size();
 	size_t n_2 = n / 2;
 	// base case
 	if (n_2 == 0)
 	{
-		std::cout << ident << "sorted=" << std::endl;
-		for (int i : array)
-		{
-			std::cout << ident << i << std::endl;
-		}
+//		std::cout << ident << "sorted=" << std::endl;
+//		for (int i : array)
+//		{
+//			std::cout << ident << i << std::endl;
+//		}
 		level--;
 		return array;
 	}
@@ -64,11 +64,11 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 			array.push_back(array2[k++]);
 		}
 	}
-	std::cout << ident << "sorted=" << std::endl;
-	for (int i : array)
-	{
-		std::cout << ident << i << std::endl;
-	}
+//	std::cout << ident << "sorted=" << std::endl;
+//	for (int i : array)
+//	{
+//		std::cout << ident << i << std::endl;
+//	}
 	level--;
 	return array;
 }
