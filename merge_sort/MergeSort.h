@@ -10,6 +10,9 @@ public:
 
 public:
 	static std::vector<int>& merge(const std::vector<int>& array, std::vector<int>& result);
+	
+private:
+	static int level;
 };
 
 #endif // MERGESORT_H
