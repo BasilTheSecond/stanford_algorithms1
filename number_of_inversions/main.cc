@@ -19,7 +19,8 @@ int main()
 	array1.push_back(1);
 	array1.push_back(2);
 	array1.push_back(6);
-	if (order(array1, result1) == NumberOfInversions::sort(array1))
+	NumberOfInversions::inversions(array1);
+	if (order(array1, result1) == array1)
 	{
 		std::cout << "OK" << std::endl;
 	}
@@ -50,7 +51,8 @@ int main()
 	array2.push_back(35);	
 	array2.push_back(62);	
 	array2.push_back(69);
-	if (order(array2, result2) == NumberOfInversions::sort(array2))
+	NumberOfInversions::inversions(array2);
+	if (order(array2, result2) == array2)
 	{
 		std::cout << "OK" << std::endl;
 	}
@@ -73,7 +75,8 @@ int main()
     {
       array3.push_back(std::stoi(line, nullptr, 10));	
     }
-		if (order(array3, result3) == NumberOfInversions::sort(array3))
+		NumberOfInversions::inversions(array3);
+		if (order(array3, result3) == array3)
 		{
 			std::cout << "OK" << std::endl;
 		}

@@ -11,7 +11,7 @@ NumberOfInversions::NumberOfInversions()
 }
 
 //
-std::vector<int>& NumberOfInversions::sort(std::vector<int>& array)
+int NumberOfInversions::inversions(std::vector<int>& array)
 {
 	level++;
 	std::string ident;
@@ -35,7 +35,7 @@ std::vector<int>& NumberOfInversions::sort(std::vector<int>& array)
 //			std::cout << ident << i << std::endl;
 //		}
 		level--;
-		return array;
+		return 0;
 	}
 	// recursion case
 	std::vector<int> array1;
@@ -49,8 +49,10 @@ std::vector<int>& NumberOfInversions::sort(std::vector<int>& array)
 	{
 		array2.push_back(array[i]);
 	}
-	NumberOfInversions::sort(array1);
-	NumberOfInversions::sort(array2);
+	int x = NumberOfInversions::inversions(array1);
+	int y = NumberOfInversions::inversions(array2);
+	(void)x;
+	(void)y;
 	// Merge
 	array.clear();
 	for (size_t i = 0, j = 0, k = 0; i < n; i++)
@@ -70,5 +72,5 @@ std::vector<int>& NumberOfInversions::sort(std::vector<int>& array)
 //		std::cout << ident << i << std::endl;
 //	}
 	level--;
-	return array;
+	return 0;
 }

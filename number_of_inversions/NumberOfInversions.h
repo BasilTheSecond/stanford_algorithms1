@@ -9,7 +9,7 @@ public:
 	NumberOfInversions();
 
 public:
-	static std::vector<int>& sort(std::vector<int>& array);
+	static int inversions(std::vector<int>& array);
 	
 private:
 	static int level;
