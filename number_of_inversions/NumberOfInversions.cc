@@ -63,6 +63,7 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 		else if (k < array2.size())
 		{
 			array.push_back(array2[k++]);
+			z += (array1.size() - j);
 		}
 	}
 //	std::cout << ident << "sorted=" << std::endl;
