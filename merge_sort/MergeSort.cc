@@ -1,5 +1,6 @@
 #include "MergeSort.h"
 #include <algorithm>
+#include <iostream>
 
 //
 int MergeSort::level = 0;
@@ -18,6 +19,10 @@ std::vector<int>& MergeSort::merge(std::vector<int>& array)
 	{
 		ident += " ";
 	}
+	for (int i : array)
+	{
+		std::cout << ident << i << std::endl;
+	}
 	//size_t n = array.size() / 2;
 	//std::cout << ident << "n=" << n << std::endl;
 	// base case
@@ -27,6 +32,6 @@ std::vector<int>& MergeSort::merge(std::vector<int>& array)
 //		return result;
 //	}
 	level--;
-	std::sort(array.begin(), array.end());
+	//std::sort(array.begin(), array.end());
 	return array;
 }
