@@ -52,17 +52,16 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	MergeSort::sort(array1);
 	MergeSort::sort(array2);
 	// Merge
-	for (size_t i = 0, j = 0, k = 0; i < array.size(); i++)
+	array.clear();
+	for (size_t i = 0, j = 0, k = 0; i < n; i++)
 	{
-		if (array1[j] < array2[k])
+		if ((j < array1.size()) && (array1[j] < array2[k]))
 		{
-			array[i] = array1[j];
-			j++;
+			array.push_back(array1[j++]);
 		}
 		else
 		{
-			array[i] = array2[k];
-			k++;
+			array.push_back(array2[k++]);
 		}
 	}
 	std::cout << ident << "sorted=" << std::endl;
