@@ -51,8 +51,7 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 	}
 	int x = NumberOfInversions::inversions(array1);
 	int y = NumberOfInversions::inversions(array2);
-	(void)x;
-	(void)y;
+	int z = 0;
 	// Merge
 	array.clear();
 	for (size_t i = 0, j = 0, k = 0; i < n; i++)
@@ -72,5 +71,5 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 //		std::cout << ident << i << std::endl;
 //	}
 	level--;
-	return 0;
+	return x + y + z;
 }
