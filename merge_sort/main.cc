@@ -1,5 +1,7 @@
 #include <iostream>
 #include <algorithm>
+#include <fstream>
+#include <string>
 #include "MergeSort.h"
 
 //
@@ -62,13 +64,30 @@ int main()
 	std::vector<int> array3;
 	std::vector<int> correct3;
 	std::vector<int> result3;
-	if (MergeSort::merge(array3, result3) == order(array3, correct3))
-	{
-		std::cout << "OK" << std::endl;
-	}
+	std::ifstream integerArrayFile ("_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt");
+	if (!integerArrayFile.is_open())
+  {
+		std::cout << "FAIL" << std::endl;
+  }
 	else
 	{
-		std::cout << "FAIL" << std::endl;
+		std::string line;
+		while (getline(integerArrayFile, line))
+    {
+      array3.push_back(std::stoi(line, nullptr, 10));	
+    }
+//		for (int i : array3)
+//		{
+//			std::cout << i << std::endl;
+//		}
+		if (MergeSort::merge(array3, result3) == order(array3, correct3))
+		{
+			std::cout << "OK" << std::endl;
+		}
+		else
+		{
+			std::cout << "FAIL" << std::endl;
+		}
 	}
 	return 0;
 }
