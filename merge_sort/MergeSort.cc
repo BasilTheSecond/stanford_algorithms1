@@ -17,9 +17,9 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	std::string ident;
 	for (int i = 0; i < level; i++)
 	{
-		ident += " ";
+		ident += "-";
 	}
-	std::cout << ident << "array=" << std::endl;
+	std::cout << ident << "unsorted=" << std::endl;
 	for (int i : array)
 	{
 		std::cout << ident << i << std::endl;
@@ -29,6 +29,11 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	// base case
 	if (n_2 == 0)
 	{
+		std::cout << ident << "sorted=" << std::endl;
+		for (int i : array)
+		{
+			std::cout << ident << i << std::endl;
+		}
 		level--;
 		return array;
 	}
@@ -44,13 +49,26 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 	{
 		array2.push_back(array[i]);
 	}
-	sort(array1);
-	sort(array2);
+	MergeSort::sort(array1);
+	MergeSort::sort(array2);
 	// Merge
-	array.clear();
-	for (size_t i = 0; i < n; i++)
+	for (size_t i = 0, j = 0, k = 0; i < array.size(); i++)
 	{
-		
+		if (array1[j] < array2[k])
+		{
+			array[i] = array1[j];
+			j++;
+		}
+		else
+		{
+			array[i] = array2[k];
+			k++;
+		}
+	}
+	std::cout << ident << "sorted=" << std::endl;
+	for (int i : array)
+	{
+		std::cout << ident << i << std::endl;
 	}
 	level--;
 	return array;
