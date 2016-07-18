@@ -10,7 +10,7 @@ MergeSort::MergeSort()
 }
 
 //
-std::vector<int>& MergeSort::merge(const std::vector<int>& array, std::vector<int>& result)
+std::vector<int>& MergeSort::merge(std::vector<int>& array)
 {
 	level++;
 	std::string ident;
@@ -18,14 +18,15 @@ std::vector<int>& MergeSort::merge(const std::vector<int>& array, std::vector<in
 	{
 		ident += " ";
 	}
-	result = array;
-	//std::cout << ident << std::endl;
+	//size_t n = array.size() / 2;
+	//std::cout << ident << "n=" << n << std::endl;
 	// base case
-	if (0)
-	{
-		level--;
-		return result;
-	}
+//	if (n == 0 || n == 1)
+//	{
+//		level--;
+//		return result;
+//	}
 	level--;
-	return result;
+	std::sort(array.begin(), array.end());
+	return array;
 }

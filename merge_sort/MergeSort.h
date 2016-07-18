@@ -9,7 +9,7 @@ public:
 	MergeSort();
 
 public:
-	static std::vector<int>& merge(const std::vector<int>& array, std::vector<int>& result);
+	static std::vector<int>& merge(std::vector<int>& array);
 	
 private:
 	static int level;

@@ -12,7 +12,6 @@ int main()
 {
 	std::cout << "Test1 " << std::endl;
 	std::vector<int> array1;
-	std::vector<int> correct1;
 	std::vector<int> result1;
 	array1.push_back(4);
 	array1.push_back(3);
@@ -20,7 +19,7 @@ int main()
 	array1.push_back(1);
 	array1.push_back(2);
 	array1.push_back(6);
-	if (MergeSort::merge(array1, result1) == order(array1, correct1))
+	if (order(array1, result1) == MergeSort::merge(array1))
 	{
 		std::cout << "OK" << std::endl;
 	}
@@ -30,7 +29,6 @@ int main()
 	}
 	std::cout << "Test2 " << std::endl;
 	std::vector<int> array2;
-	std::vector<int> correct2;
 	std::vector<int> result2;
 	array2.push_back(96);	
 	array2.push_back(99);	
@@ -52,7 +50,7 @@ int main()
 	array2.push_back(35);	
 	array2.push_back(62);	
 	array2.push_back(69);
-	if (MergeSort::merge(array2, result2) == order(array2, correct2))
+	if (order(array2, result2) == MergeSort::merge(array2))
 	{
 		std::cout << "OK" << std::endl;
 	}
@@ -62,25 +60,20 @@ int main()
 	}
 	std::cout << "Test3 " << std::endl;
 	std::vector<int> array3;
-	std::vector<int> correct3;
 	std::vector<int> result3;
-	std::ifstream integerArrayFile ("_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt");
-	if (!integerArrayFile.is_open())
+	std::ifstream file3("_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt");
+	if (!file3.is_open())
   {
 		std::cout << "FAIL" << std::endl;
   }
 	else
 	{
 		std::string line;
-		while (getline(integerArrayFile, line))
+		while (getline(file3, line))
     {
       array3.push_back(std::stoi(line, nullptr, 10));	
     }
-//		for (int i : array3)
-//		{
-//			std::cout << i << std::endl;
-//		}
-		if (MergeSort::merge(array3, result3) == order(array3, correct3))
+		if (order(array3, result3) == MergeSort::merge(array3))
 		{
 			std::cout << "OK" << std::endl;
 		}
