@@ -1,6 +1,7 @@
 #include "NumberOfInversions.h"
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
 //
 int NumberOfInversions::level = 0;
@@ -19,7 +20,7 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 	{
 		ident += "-";
 	}
-//	std::cout << ident << "unsorted=" << std::endl;
+	//std::cout << ident << "unsorted=" << std::endl;
 //	for (int i : array)
 //	{
 //		std::cout << ident << i << std::endl;
@@ -56,14 +57,25 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 	array.clear();
 	for (size_t i = 0, j = 0, k = 0; i < n; i++)
 	{
-		if ((j < array1.size()) && (array1[j] < array2[k]))
+		if (j == array1.size() && k < array2.size())
+		{
+			array.push_back(array2[k++]);
+		}
+		else if (j < array1.size() && k == array2.size())
 		{
 			array.push_back(array1[j++]);
 		}
-		else if (k < array2.size())
+		if (j < array1.size() && k < array2.size())
 		{
-			array.push_back(array2[k++]);
-			z += (array1.size() - j);
+			if (array1[j] < array2[k])
+			{
+				array.push_back(array1[j++]);
+			}
+			else
+			{
+				array.push_back(array2[k++]);
+				z += (array1.size() - j);
+			}
 		}
 	}
 //	std::cout << ident << "sorted=" << std::endl;
@@ -71,6 +83,7 @@ int NumberOfInversions::inversions(std::vector<int>& array)
 //	{
 //		std::cout << ident << i << std::endl;
 //	}
+	int inversions = x + y + z;
 	level--;
-	return x + y + z;
+	return inversions;
 }
