@@ -19,8 +19,8 @@ int main()
 	array1.push_back(1);
 	array1.push_back(2);
 	array1.push_back(6);
-	NumberOfInversions::inversions(array1);
-	if (order(array1, result1) == array1)
+	int inversions1 = NumberOfInversions::inversions(array1);
+	if (order(array1, result1) == array1 && inversions1 == 7)
 	{
 		std::cout << "OK" << std::endl;
 	}
