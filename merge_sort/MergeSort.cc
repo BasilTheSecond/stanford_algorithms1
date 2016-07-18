@@ -59,7 +59,7 @@ std::vector<int>& MergeSort::sort(std::vector<int>& array)
 		{
 			array.push_back(array1[j++]);
 		}
-		else
+		else if (k < array2.size())
 		{
 			array.push_back(array2[k++]);
 		}
